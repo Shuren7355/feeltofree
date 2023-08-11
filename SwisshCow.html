@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SwissCows Search</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      overflow: hidden; /* Prevents scrollbars */
+    }
+    
+      /* Add styles for the video container */
+    .video-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* Place the video behind other content */
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Maintain aspect ratio and cover the entire container */
+    }
+
+    /* Adjust styles for the content container */
+    .container {
+      background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background overlay */
+      /* Your other styles here */
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .search-container {
+      position: relative;
+      max-width: 500px;
+    }
+
+    .search-bar {
+      width: 100%;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      background-color: rgba(0, 0, 0, 0.9);
+      color: white;
+      outline: none;
+    }
+
+    .search-icon {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 15px;
+      transform: translateY(-50%);
+    }
+
+    .encryption-locked {
+      position: center;
+      color: beige;
+      font-size: 30px;
+      margin-bottom: 30px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(-50px);
+      }
+
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    .search-bar-animation {
+      animation: fadeIn 1s ease, slideIn 1s ease;
+    }
+  </style>
+</head>
+
+<body>
+   <div class="video-container">
+       <video autoplay loop muted>
+         <source src="milky_way_glowing_at_night (720p).mp4" type="video/mp4">
+         <!-- Add additional source elements for different video formats if needed -->
+         Your browser does not support the video tag.
+       </video>
+   </div>
+  <div class="container">
+    <div class="encryption-locked">Encryption Locked</div>
+    <div class="search-container">
+      <div class="search-icon">
+        <!-- You can use your preferred search icon or an image here -->
+        <!-- <img src="search-icon.png" alt="Search Icon" width="24" height="24"> -->
+      </div>
+      <input type="text" id="searchInput" class="search-bar search-bar-animation"
+             placeholder="Search SwissCows...">
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('searchInput').addEventListener('keypress', function (event) {
+      if (event.key === 'Enter') {
+        performSearch();
+      }
+    });
+
+    function performSearch() {
+      const searchQuery = document.getElementById('searchInput').value;
+      if (searchQuery.trim() !== '') {
+        // Build the SwissCows search URL and open it in a new tab
+        const searchUrl = `https://www.swisscows.com/web?query=${encodeURIComponent(searchQuery)}`;
+        window.open(searchUrl, '_blank');
+      }
+    }
+  </script>
+  <div style="position: fixed; bottom: 10px; right: 10px;">
+    <a href="ByMeACoffee.html">
+      <img src="icons8-coffee-100.png" alt="Coffee Cup Icon" width="50" height="50">
+    </a>
+  </div>
+</body>
+
+</html>

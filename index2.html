@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Scholars Hub</title>
+  
+  <style>
+  body {
+  font-family: Arial, sans-serif;
+  line-height: 2;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 46px 46px;
+}
+
+main,
+    footer,
+    .long-box,
+    .class-list {
+      background-color: rgba(0, 0, 0, 0.1); /* Dark transparent background */
+      border-radius: 750px;
+    }
+    
+    /* Add styles for text color in dark mode */
+    body,
+    header,
+    .header-button,
+    .class-list button,
+    .long-box.special {
+      color: black; /* White text color for better visibility */
+      box-shadow: 20px;
+      backdrop-filter: 20px;
+    }
+
+/* Style the video background */
+#video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* Place the video behind other content */
+}
+
+/* Rest of your CSS styles */
+
+    header {
+      background-color: transparent;
+      color: rgb(128, 85, 85);
+      padding: 30px;
+      text-align: left;
+      text-decoration: none;
+    }
+    
+    .header-button {
+      text-decoration: none;
+  /* Existing styles */
+
+  /* Add animation styles */
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInButton 1s ease forwards;
+}
+
+@keyframes fadeInButton {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+    header ul {
+      list-style: italic;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column; /* Arrange buttons in a vertical list */
+      align-items: left; /* Center align the buttons */
+      backdrop-filter: 20px;
+    }
+
+    header li {
+      margin: 10px 0px;
+      
+    }
+
+    .header-button {
+      backdrop-filter: blur(30pc);
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+    border-color: black;
+      border-radius: 30px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background-color 0.3s, color 0.3s, transform 0.3s;
+      cursor: pointer;
+      background-color: transparent;
+      color: #333;
+      font-size: 14px;
+    }
+    
+    .header-button:hover {
+      text-decoration: none;
+      transform: scale(1.1);
+      backdrop-filter: 20px;
+    }
+    
+    .animated-heading h1 {
+     font-style: italic;
+  /* Existing styles */
+
+  /* Add animation styles */
+  opacity: 1;
+  transform: translateY(-300px);
+  animation: fadeInUpHeading 1s ease forwards;
+}
+
+@keyframes fadeInUpHeading {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+    main {
+      padding: 20px;
+      text-align: center;
+      backdrop-filter: 6px;
+    }
+
+img {
+  /* Existing styles */
+background-color: transparent;
+      max-width: 100%;
+      display: block;
+      margin: 20px auto;
+      border-radius: 8px;
+  /* Add animation styles */
+  opacity: 0;
+  transform: scale(0.5);
+  animation: scaleUpLogo 1s ease forwards;
+}
+
+@keyframes scaleUpLogo {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+    .class-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 19px;
+      padding: 20px;
+      border-radius: 8px;
+      flex-direction: column;
+    }
+
+    /* Use the same styles as the header buttons */
+    .class-list button {
+      background-color: transparent;
+      border: 2px solid #333;
+      color: #333;
+      font-weight: bold;
+      cursor: pointer;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 20px; /* Rounded corners */
+      transition: background-color 0.3s, color 0.3s;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeIn 1s ease forwards;
+      }
+    
+    
+
+    .class-list button:hover {
+      background-color: rgba(255, 255, 255, 0.9); /* Slightly darken on hover */
+    }
+
+    .long-box.special {
+      background-color: rgba(255, 255, 255, 0.5);
+      border: 2px solid black;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      text-transform: uppercase;
+      padding: 20px;
+      font-size: 16px;
+      border-radius: 70px;
+      transition: background-color 0.9s, color 0.9s;
+      max-width: 70%;
+      margin: 20px auto;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .long-box.special:hover {
+      background-color: rgba(255, 255, 255, 0.2); /* Slightly darken on hover */
+      backdrop-filter: 10px; /* Remove the blur effect on hover */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      animation: slideUp 1s ease-in-out, fadeIn 2s ease-in-out;
+    }
+    
+    .footer {
+      position: down;
+      background-color: rgba(255, 255, 255, 0.7); /* Adjust the alpha value for transparency */
+      border-radius: 76px 76px;
+      padding: 9px;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1s ease forwards;
+      backdrop-filter: blur(10px);
+    }
+    
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    
+    .beta-message {
+      color:darkslategray;
+      font-style: none;
+      font-weight: bold;
+      padding: 3px;
+      margin: 5px auto;
+    }
+
+    .animated-heading {
+      position: relative;
+      margin-top: 40px;
+    }
+
+    .animated-heading h2 {
+      font-size: 30px;
+      font-weight: bold;
+      margin: 0;
+      padding: 0;
+      opacity: 0;
+      transform: translateY(-50px);
+      animation: fadeInUp 1s ease forwards;
+      backdrop-filter: blur(10px);
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Make the website content transparent */
+    main,
+    footer {
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 69px 69px;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 6px 9px rgba(0, 0, 0, 0.2);
+      animation: slideUp 3s ease-in-out, fadeIn 5s ease-in-out;
+      
+      
+    }
+    .class-list a {
+      text-decoration: none;
+      color: #444;
+      /* Add animation styles */
+      position: relative;
+      display: inline-block;
+      block-size: 26px;
+      backdrop-filter: 20px;
+    }
+
+    /* Add underline and change color on hover for class links */
+    .class-list a:hover {
+      text-decoration: none;
+      color: black;
+      backdrop-filter: blur(10px);
+    }
+  </style>
+</head>
+
+<body>
+  <video autoplay muted loop id="video-background">
+    <source src="video (720p).mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+<header>
+  <ul>
+    <li><a class="header-button" href="EndIndex.html">Home</a></li>
+    <li><a class="header-button" href="about4.html">About</a></li>
+    <li><a class="header-button" href="ContactUs.html">Contact Us</a></li>
+    <li><a class="header-button" href="ByMeACoffee.html">Buy Me a Coffee</a></li>
+    <li><a class="header-button" id="logoutButton">Log Out</a></li>
+  </ul>
+</header>
+
+
+  <main>
+    <!-- Add your logo here -->
+    <div>
+      <img src="TheScholarsTeam.png" alt="Logo">
+    </div>
+<br><br><br>
+    <div class="animated-heading">
+      <h1 id="home" background="black"><strong>Study Area</strong></h1>
+    </div>
+
+    <!-- Show class list one below the other -->
+    <div class="class-list">
+      <!-- Empty divs for transparent effects -->
+      <div class="long-box"></div>
+      <button><a href="6THA.html">Class 6th</button></a>
+      <button><a href="7ThA.html">Class 7th</a></button>
+      <button><a href="8tha.html">Class 8th</a></button>
+      <button><a href="9tha.html">Class 9th</a></button>
+      <button><a href="10tha.html">Class 10th</a></button>
+      <button><a href="11tha.html">11th ARTS</a></button>
+      <button><a href="12tha.html">12th ARTS</a></button>
+      <button><a href="11Vocational.html">11th VOCATIONAL</a></button>
+      <button><a href="12Vocational.html">12th Vocational</a></button>
+      <div class="long-box"></div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="beta-message">
+      <marquee>
+        <p><h3>This Website Running in Beta Testing v7.0.2</h3></p>
+      </marquee>
+    </div>
+  </footer>
+
+  <!-- JavaScript for smooth scrolling to sections -->
+  <script>
+    function scrollToSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+    // Get the logout button element
+    var logoutButton = document.getElementById("logoutButton");
+
+    // Add click event listener to the logout button
+    logoutButton.addEventListener("click", function() {
+        // Perform any logout actions here (e.g., clear session data, etc.)
+
+        // Redirect to the login page
+        window.location.href = "index.html";
+    });
+});
+  //  const darkModeToggle = document.getElementById("darkModeToggle");
+  //  const body = document.body;
+    
+    // Check if dark mode is enabled in local storage
+//    const isDarkMode = localStorage.getItem("darkMode") === "true";
+    
+    // Function to enable or disable dark mode
+//    function toggleDarkMode() {
+//      if (isDarkMode) {
+        body.classList.remove("dark-mode");
+        localStorage.setItem("darkMode", "true");
+//      } else {
+//        body.classList.add("dark-mode");
+//        localStorage.setItem("darkMode", "flase");
+//      }
+  //  }
+    
+    // Set initial mode based on local storage
+//    if (isDarkMode) {
+//      body.classList.add("dark-mode");
+//    }
+     // Add click event listener to the dark mode toggle button
+//     darkModeToggle.addEventListener("click", toggleDarkMode);
+
+  </script>
+</body>
+
+</html>
